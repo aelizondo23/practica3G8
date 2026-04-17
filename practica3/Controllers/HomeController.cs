@@ -14,6 +14,11 @@ namespace practica3.Controllers
             _apiService = apiService;
         }
 
+        public IActionResult Index()
+        {
+            return View();
+        }
+
         public async Task<IActionResult> Consulta()
         {
             var compras = await _apiService.ConsultarCompras();

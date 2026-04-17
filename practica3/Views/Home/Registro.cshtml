@@ -51,6 +51,16 @@
                     $("#txtSaldo").val('');
                 }
             });
+
+            $("form").submit(function (e) {
+                const abono = parseFloat($("#Monto").val());
+                const saldo = parseFloat($("#txtSaldo").val());
+
+                if (!isNaN(abono) && !isNaN(saldo) && abono > saldo) {
+                    e.preventDefault();
+                    alert("El abono no puede ser mayor al saldo anterior.");
+                }
+            });
         });
     </script>
 }

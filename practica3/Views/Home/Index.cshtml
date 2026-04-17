@@ -1,8 +1,42 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+@{
+    ViewData["Title"] = "Inicio";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="text-center py-4">
+    <div class="mb-4">
+        <i class="bi bi-cash-coin" style="font-size: 4rem; color: #e2b96f;"></i>
+    </div>
+    <h1 class="fw-bold mb-2" style="color: #1a1a2e;">Sistema de Pagos Parciales</h1>
+    <p class="text-muted mb-5 fs-5">Administra tus compras y realiza abonos de forma sencilla y rápida.</p>
+
+    <div class="row justify-content-center g-4">
+        <div class="col-md-4">
+            <div class="card shadow-sm border-0 h-100">
+                <div class="card-body p-4 text-center">
+                    <div class="mb-3">
+                        <i class="bi bi-table" style="font-size: 2.5rem; color: #0f3460;"></i>
+                    </div>
+                    <h5 class="card-title fw-bold">Consulta</h5>
+                    <p class="card-text text-muted">Visualiza todas las compras registradas y su estado actual.</p>
+                    <a asp-controller="Home" asp-action="Consulta" class="btn btn-primary mt-2 px-4">
+                        <i class="bi bi-arrow-right-circle me-1"></i> Ver Compras
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card shadow-sm border-0 h-100">
+                <div class="card-body p-4 text-center">
+                    <div class="mb-3">
+                        <i class="bi bi-plus-circle" style="font-size: 2.5rem; color: #0f3460;"></i>
+                    </div>
+                    <h5 class="card-title fw-bold">Registro</h5>
+                    <p class="card-text text-muted">Registra un abono parcial a una compra pendiente de pago.</p>
+                    <a asp-controller="Home" asp-action="Registro" class="btn btn-success mt-2 px-4">
+                        <i class="bi bi-pencil-square me-1"></i> Registrar Abono
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
