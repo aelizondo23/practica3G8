@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="practica3 API/practica3_API.csproj" />
+  <Project Path="practica3/practica3.csproj" />
+</Solution>

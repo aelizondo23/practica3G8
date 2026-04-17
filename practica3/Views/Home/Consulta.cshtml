@@ -1,0 +1,27 @@
+﻿@model List<practica3.Models.CompraViewModel>
+
+<h3 class="mb-3">Consulta</h3>
+
+<table class="table table-bordered table-striped">
+    <thead class="table-dark">
+        <tr>
+            <th>Código Compra</th>
+            <th>Descripción</th>
+            <th>Precio</th>
+            <th>Saldo</th>
+            <th>Estado</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Id_Compra</td>
+                <td>@item.Descripcion</td>
+                <td>@item.Precio.ToString("N2")</td>
+                <td>@item.Saldo.ToString("N2")</td>
+                <td>@item.Estado</td>
+            </tr>
+        }
+    </tbody>
+</table>

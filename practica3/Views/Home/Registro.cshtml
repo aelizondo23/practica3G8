@@ -1,0 +1,56 @@
+﻿@model practica3.Models.RegistroAbonoViewModel
+
+<h3 class="mb-3">Registro</h3>
+
+<form asp-action="Registro" method="post">
+    <div asp-validation-summary="All" class="text-danger mb-3"></div>
+
+    <div class="mb-3">
+        <label class="form-label">Compra</label>
+        <select asp-for="Id_Compra" class="form-select" id="ddlCompra">
+            <option value="">Seleccione una compra</option>
+            @foreach (var item in Model.ComprasPendientes)
+            {
+                <option value="@item.Id_Compra">@item.Descripcion</option>
+            }
+        </select>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Saldo Anterior</label>
+        <input asp-for="SaldoAnterior" class="form-control" id="txtSaldo" readonly />
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Abono</label>
+        <input asp-for="Monto" class="form-control" />
+        <span asp-validation-for="Monto" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Abonar</button>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+
+    <script>
+        $(document).ready(function () {
+            $("#ddlCompra").change(function () {
+                const idCompra = $(this).val();
+
+                if (idCompra) {
+                    $.get('/Home/ObtenerSaldo', { idCompra: idCompra }, function (response) {
+                        if (response.ok) {
+                            $("#txtSaldo").val(response.saldo);
+                        } else {
+                            $("#txtSaldo").val('');
+                            alert(response.mensaje);
+                        }
+                    });
+                } else {
+                    $("#txtSaldo").val('');
+                }
+            });
+        });
+    </script>
+}
